@@ -12,32 +12,38 @@ int main()
 {
 
     int i;
-    int north;
-    int south;
-    int west;
-    int east;
-    int direct;
-    int moves;
+    int north = 0;
+    int east = 0;
+    int direct = 0;
+    int moves = 0;
     srand(time(0));
 
-    while (north <= 3 || east <=2) 
+    while (north != 3 || east != 2) 
     {
         direct = rand() % 4 + 1;
         if (direct == 1)
-        {north = north + 1;
-        moves = moves + 1;}
+        { 
+            north = north + 1;
+            moves = moves + 1;
+        }
         else if (direct == 2)
-        {south = south + 1;
-        moves = moves + 1;}
+        {
+            north = north - 1;
+            moves = moves + 1;
+        }
         else if (direct == 3)
-        {east = east + 1;
-        moves = moves + 1;}
+        {
+            east = east + 1;
+            moves = moves + 1;
+        }
         else if (direct == 4)
-        {west = west + 1;
-        moves = moves + 1;}
+        {
+            east = east - 1;
+            moves = moves + 1;
+        }
     }
 
-    cout << moves << " " << north << " " << east;
+    cout << "It took " <<  moves << " steps to get " << north << " steps north, and " << east << " steps east.";
     return 0;
     
 }
